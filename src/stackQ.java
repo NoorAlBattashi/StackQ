@@ -14,11 +14,16 @@ public class stackQ {
 		calculateParenthesesWithStack(Parentheses);
 		System.out.println();
 
-		System.out.println();
 		String splitString = "Reverse me if you can";
 		reverseWordInSentanceStack(splitString);
 		System.out.println();
 		reverseWordInSentance(splitString);
+
+		System.out.println();
+		System.out.println();
+		ArrayList<String> stringArr = new ArrayList<String>();
+		stringArr = splitMethod(splitString);
+		System.out.println(stringArr);
 	}
 
 	/**
@@ -96,7 +101,13 @@ public class stackQ {
 			System.out.print(collectwordStrings.pop() + " ");
 		}
 	}
-
+	/**
+	 * This method will take the strings given and reverse it then display it using
+	 * iteration for example: input: "Reverse me if you can" then the output will be:
+	 * "can you if me Reverse"
+	 * 
+	 * @param origString
+	 */
 	public static void reverseWordInSentance(String origString) {
 		ArrayList<String> collectwordStrings = new ArrayList<String>();
 		String[] arrOfStr = origString.split(" ");
@@ -109,10 +120,35 @@ public class stackQ {
 		}
 
 	}
+
+	/**
+	 * Implement .split method. split should take a character as input and returns
+	 * an array of strings.
+	 * 
+	 * INPUT: "Reverse me if you can" OUTPUT: ["Reverse", "me", "if", "you", "can"]
+	 * @param origString
+	 * @return stringArr
+	 */
 	public static ArrayList<String> splitMethod(String origString) {
-		ArrayList<String> stringArr = new ArrayList<String>();
+		//create arraList to collect the characters of the origString
+		ArrayList<Character> charArr = new ArrayList<Character>();
+		for (int index = 0; index < origString.length(); index++) {
+			charArr.add(origString.charAt(index));
+		}
 		
+		//create arraList to add the characters in a string add add it inside the arraList
+		ArrayList<String> stringArr = new ArrayList<String>();
+		String collectChar = "";
+		for (int index = 0; index < charArr.size(); index++) {
+			collectChar = collectChar + Character.toString(charArr.get(index));
+			if (charArr.get(index) == ' ') {
+				stringArr.add(collectChar);
+				collectChar = "";
+			} else if (index == charArr.size() - 1) {
+				stringArr.add(collectChar);
+			}
+		}
 		return stringArr;
 	}
-	
+
 }
