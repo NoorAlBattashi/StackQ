@@ -126,7 +126,7 @@ public class stackQ {
 	 * Implement .split method. split should take a character as input and returns
 	 * an array of strings.
 	 * 
-	 * INPUT: "Reverse me if you can" OUTPUT: ["Reverse", "me", "if", "you", "can"]
+	 * INPUT: ("Reverse me if you can", " ") OUTPUT: ["Reverse", "me", "if", "you", "can"]
 	 * @param origString
 	 * @return stringArr
 	 */
