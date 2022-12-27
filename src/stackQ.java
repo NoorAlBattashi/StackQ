@@ -22,7 +22,8 @@ public class stackQ {
 		System.out.println();
 		System.out.println();
 		ArrayList<String> stringArr = new ArrayList<String>();
-		stringArr = splitMethod(splitString);
+		char limit = ' ';
+		stringArr = splitMethod(splitString, limit);
 		System.out.println(stringArr);
 	}
 
@@ -129,7 +130,7 @@ public class stackQ {
 	 * @param origString
 	 * @return stringArr
 	 */
-	public static ArrayList<String> splitMethod(String origString) {
+	public static ArrayList<String> splitMethod(String origString,char limit) {
 		//create arraList to collect the characters of the origString
 		ArrayList<Character> charArr = new ArrayList<Character>();
 		for (int index = 0; index < origString.length(); index++) {
@@ -141,7 +142,7 @@ public class stackQ {
 		String collectChar = "";
 		for (int index = 0; index < charArr.size(); index++) {
 			collectChar = collectChar + Character.toString(charArr.get(index));
-			if (charArr.get(index) == ' ') {
+			if (charArr.get(index) == limit) {
 				stringArr.add(collectChar);
 				collectChar = "";
 			} else if (index == charArr.size() - 1) {
